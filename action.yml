@@ -1,6 +1,6 @@
 name: ARM Template Toolkit (ARM TTK)
 author: Aliencube Community
-description: Run [arm-ttk](https://github.com/Azure/arm-ttk) against your ARM templates
+description: Run [ARM Test Toolkit (ARM TTK)](https://github.com/Azure/arm-ttk) against your ARM templates
 
 branding:
   icon: check-circle
@@ -14,10 +14,10 @@ inputs:
     description: ARM template files to run the test, delimited by comma.
     required: false
   tests:
-    description: Tests to run, delimited by comma.
+    description: Tests to run, delimited by comma. If omitted, all tests will be run.
     required: false
   skips:
-    description: Tests to skip, delimited by comma.
+    description: Tests to skip, delimited by comma. If omitted, no test will be excluded.
     required: false
 
 outputs:
