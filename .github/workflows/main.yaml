@@ -26,11 +26,11 @@ jobs:
     - name: Test result - path
       shell: bash
       run: |
-        results=${{ steps.pathtest.outputs.results }}
-        results="${results//$'%'/'%25'}"
-        results="${results//$'\n'/'%0A'}"
-        results="${results//$'\r'/'%0D'}"
-        echo "Results $results"
+        echo ${{ steps.pathtest.outputs.results }}
+        # results="${results//$'%'/'%25'}"
+        # results="${results//$'\n'/'%0A'}"
+        # results="${results//$'\r'/'%0D'}"
+        # echo "Results $results"
 
     - name: Run the private action - files
       id: filestest
@@ -42,11 +42,11 @@ jobs:
     - name: Test result - files
       shell: bash
       run: |
-        results=${{ steps.filestest.outputs.results }}
-        results="${results//$'%'/'%25'}"
-        results="${results//$'\n'/'%0A'}"
-        results="${results//$'\r'/'%0D'}"
-        echo "Results $results"
+        echo ${{ steps.filestest.outputs.results }}
+        # results="${results//$'%'/'%25'}"
+        # results="${results//$'\n'/'%0A'}"
+        # results="${results//$'\r'/'%0D'}"
+        # echo "Results $results"
 
     - name: Run the private action - specify tests
       id: teststest
@@ -59,11 +59,11 @@ jobs:
     - name: Test result - files
       shell: bash
       run: |
-        results=${{ steps.teststest.outputs.results }}
-        results="${results//$'%'/'%25'}"
-        results="${results//$'\n'/'%0A'}"
-        results="${results//$'\r'/'%0D'}"
-        echo "Results $results"
+        echo ${{ steps.teststest.outputs.results }}
+        # results="${results//$'%'/'%25'}"
+        # results="${results//$'\n'/'%0A'}"
+        # results="${results//$'\r'/'%0D'}"
+        # echo "Results $results"
 
     - name: Run the private action - skip tests
       id: skipstest
@@ -76,8 +76,8 @@ jobs:
     - name: Test result - files
       shell: bash
       run: |
-        results=${{ steps.skipstest.outputs.results }}
-        results="${results//$'%'/'%25'}"
-        results="${results//$'\n'/'%0A'}"
-        results="${results//$'\r'/'%0D'}"
-        echo "Results $results"
+        echo ${{ steps.skipstest.outputs.results }}
+        # results="${results//$'%'/'%25'}"
+        # results="${results//$'\n'/'%0A'}"
+        # results="${results//$'\r'/'%0D'}"
+        # echo "Results $results"
