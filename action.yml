@@ -1,0 +1,34 @@
+name: ARM Template Toolkit (ARM TTK)
+author: Aliencube Community
+description: Run [arm-ttk](https://github.com/Azure/arm-ttk) against your ARM templates
+
+branding:
+  icon: check-circle
+  color: green
+
+inputs:
+  path:
+    description: ARM Template file path to run the test. It can be either a directory or single file.
+    required: true
+  files:
+    description: ARM template files to run the test, delimited by comma.
+    required: false
+  tests:
+    description: Tests to run, delimited by comma.
+    required: false
+  skips:
+    description: Tests to skip, delimited by comma.
+    required: false
+
+outputs:
+  results:
+    description: Test results.
+
+runs:
+  using: docker
+  image: Dockerfile
+  args:
+  - ${{ inputs.path }}
+  - ${{ inputs.files }}
+  - ${{ inputs.tests }}
+  - ${{ inputs.skips }}

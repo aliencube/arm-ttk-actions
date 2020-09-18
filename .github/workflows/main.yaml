@@ -1,0 +1,67 @@
+name: ARM Template Build and Test
+
+on: push
+
+jobs:
+  build_and_test:
+    name: Build and Test
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout the repo
+      uses: actions/checkout@v2
+
+    - name: Run Bicep build
+      uses: aliencube/bicep-build-actions@v0.1
+      with:
+        files: '**/*.bicep'
+
+    - name: Run the private action - path
+      id: pathtest
+      uses: ./
+      with:
+        path: ./sample.json
+
+    - name: Test result - path
+      run: |
+        content=${{ steps.pathtest.outputs.results }}
+        echo "Results $content"
+
+    - name: Run the private action - files
+      id: filestest
+      uses: ./
+      with:
+        path: ./
+        files: sample.json
+
+    - name: Test result - files
+      run: |
+        content=${{ steps.filestest.outputs.results }}
+        echo "Results $content"
+
+    - name: Run the private action - specify tests
+      id: teststest
+      uses: ./
+      with:
+        path: ./
+        files: sample.json
+        tests: apiVersions
+
+    - name: Test result - files
+      run: |
+        content=${{ steps.teststest.outputs.results }}
+        echo "Results $content"
+
+    - name: Run the private action - skip tests
+      id: skipstest
+      uses: ./
+      with:
+        path: ./
+        files: sample.json
+        skips: apiVersions
+
+    - name: Test result - files
+      run: |
+        content=${{ steps.skipstest.outputs.results }}
+        echo "Results $content"
