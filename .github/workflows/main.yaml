@@ -25,11 +25,9 @@ jobs:
 
     - name: Test result - path
       shell: bash
+      continue-on-error: true
       run: |
         results=${{ steps.pathtest.outputs.results }}
-        results="${results//'\\E[35m'/''}"
-        # results="${results//$'\n'/'%0A'}"
-        # results="${results//$'\r'/'%0D'}"
         echo "Results $results"
 
     - name: Run the private action - files
@@ -41,12 +39,10 @@ jobs:
 
     - name: Test result - files
       shell: bash
+      continue-on-error: true
       run: |
         echo ${{ steps.filestest.outputs.results }}
-        # results="${results//$'%'/'%25'}"
-        # results="${results//$'\n'/'%0A'}"
-        # results="${results//$'\r'/'%0D'}"
-        # echo "Results $results"
+        echo "Results $results"
 
     - name: Run the private action - specify tests
       id: teststest
@@ -58,12 +54,10 @@ jobs:
 
     - name: Test result - files
       shell: bash
+      continue-on-error: true
       run: |
         results=${{ steps.teststest.outputs.results }}
-        # results="${results//$'%'/'%25'}"
-        # results="${results//$'\n'/'%0A'}"
-        # results="${results//$'\r'/'%0D'}"
-        # echo "Results $results"
+        echo "Results $results"
 
     - name: Run the private action - skip tests
       id: skipstest
@@ -75,9 +69,7 @@ jobs:
 
     - name: Test result - files
       shell: bash
+      continue-on-error: true
       run: |
         echo ${{ steps.skipstest.outputs.results }}
-        # results="${results//$'%'/'%25'}"
-        # results="${results//$'\n'/'%0A'}"
-        # results="${results//$'\r'/'%0D'}"
-        # echo "Results $results"
+        echo "Results $results"
