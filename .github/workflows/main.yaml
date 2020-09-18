@@ -24,9 +24,13 @@ jobs:
         path: ./sample.json
 
     - name: Test result - path
+      shell: bash
       run: |
-        content=${{ steps.pathtest.outputs.results }}
-        echo "Results $content"
+        results=${{ steps.pathtest.outputs.results }}
+        results="${results//$'%'/'%25'}"
+        results="${results//$'\n'/'%0A'}"
+        results="${results//$'\r'/'%0D'}"
+        echo "Results $results"
 
     - name: Run the private action - files
       id: filestest
@@ -36,9 +40,13 @@ jobs:
         files: sample.json
 
     - name: Test result - files
+      shell: bash
       run: |
-        content=${{ steps.filestest.outputs.results }}
-        echo "Results $content"
+        results=${{ steps.filestest.outputs.results }}
+        results="${results//$'%'/'%25'}"
+        results="${results//$'\n'/'%0A'}"
+        results="${results//$'\r'/'%0D'}"
+        echo "Results $results"
 
     - name: Run the private action - specify tests
       id: teststest
@@ -49,9 +57,13 @@ jobs:
         tests: apiVersions
 
     - name: Test result - files
+      shell: bash
       run: |
-        content=${{ steps.teststest.outputs.results }}
-        echo "Results $content"
+        results=${{ steps.teststest.outputs.results }}
+        results="${results//$'%'/'%25'}"
+        results="${results//$'\n'/'%0A'}"
+        results="${results//$'\r'/'%0D'}"
+        echo "Results $results"
 
     - name: Run the private action - skip tests
       id: skipstest
@@ -62,6 +74,10 @@ jobs:
         skips: apiVersions
 
     - name: Test result - files
+      shell: bash
       run: |
-        content=${{ steps.skipstest.outputs.results }}
-        echo "Results $content"
+        results=${{ steps.skipstest.outputs.results }}
+        results="${results//$'%'/'%25'}"
+        results="${results//$'\n'/'%0A'}"
+        results="${results//$'\r'/'%0D'}"
+        echo "Results $results"
