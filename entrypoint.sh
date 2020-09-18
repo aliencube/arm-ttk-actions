@@ -12,7 +12,7 @@ echo "workspace: $GITHUB_WORKSPACE"
 pwd
 ls -al
 
-_args="-TemplatePath '$1'"
+_args="-TemplatePath '$GITHUB_WORKSPACE/$1'"
 
 [ "$2" ] && _args="$_args -File '$2'"
 [ "$3" ] && _args="$_args -Test '$3'"
