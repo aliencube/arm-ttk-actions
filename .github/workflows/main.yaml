@@ -21,7 +21,7 @@ jobs:
       id: pathtest
       uses: ./
       with:
-        path: $GITHUB_WORKSPACE/sample.json
+        path: ${{ env.GITHUB_WORKSPACE }}/sample.json
 
     - name: Test result - path
       shell: bash
