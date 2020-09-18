@@ -22,7 +22,7 @@ Import-Module ./arm-ttk.psd1
 Set-Location /
 
 $command = "Test-AzTemplate -TemplatePath $env:GITHUB_WORKSPACE/$Path"
-if ($Files.Length -gt 0)
+if (($Files -ne $null) -and ($Files.Length -gt 0))
 {
     $command += " -File $Files"
 }
