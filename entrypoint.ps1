@@ -22,17 +22,17 @@ Import-Module ./arm-ttk.psd1
 Set-Location /
 
 $command = "Test-AzTemplate -TemplatePath $env:GITHUB_WORKSPACE/$Path"
-if ($Files.Count -gt 0)
+if ($Files.Length -gt 0)
 {
-    $command &= " -File $Files"
+    $command += " -File $Files"
 }
-if ($Tests.Count -gt 0)
+if ($Tests.Length -gt 0)
 {
-    $command &= " -Test $Tests"
+    $command += " -Test $Tests"
 }
-if ($Skips.Count -gt 0)
+if ($Skips.Length -gt 0)
 {
-    $command &= " -Skip $Skips"
+    $command += " -Skip $Skips"
 }
 
 $results = Invoke-Expression "& $command"
