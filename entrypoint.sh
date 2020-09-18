@@ -8,10 +8,6 @@ set -e
 # -Test => $3
 # -Skip => $4
 
-echo "workspace: $GITHUB_WORKSPACE"
-pwd
-ls -al
-
 _args="-TemplatePath '$GITHUB_WORKSPACE/$1'"
 
 [ "$2" ] && _args="$_args -File '$2'"

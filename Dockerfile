@@ -16,11 +16,11 @@ RUN apt-get update && apt-get install -y \
 
 RUN git clone https://github.com/Azure/arm-ttk.git /arm-ttk
 
-ADD entrypoint.sh /entrypoint.sh
-RUN chmod +x /entrypoint.sh
+# ADD entrypoint.sh /entrypoint.sh
+# RUN chmod +x /entrypoint.sh
 
-# ADD entrypoint.ps1 /entrypoint.ps1
-# RUN chmod +x /entrypoint.ps1
+ADD entrypoint.ps1 /entrypoint.ps1
+RUN chmod +x /entrypoint.ps1
 
-ENTRYPOINT ["/entrypoint.sh"]
-# ENTRYPOINT ["pwsh", "-File", "/entrypoint.ps1"]
+# ENTRYPOINT ["/entrypoint.sh"]
+ENTRYPOINT ["pwsh", "-File", "/entrypoint.ps1"]
