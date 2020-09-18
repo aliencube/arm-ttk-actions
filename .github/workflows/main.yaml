@@ -50,9 +50,9 @@ jobs:
       with:
         path: ./
         files: sample.json
-        tests: apiVersions Should Be Recent
+        tests: apiVersions Should Be Recent,Resources Should Have Location
 
-    - name: Test result - files
+    - name: Test result - specify tests
       shell: bash
       continue-on-error: true
       run: |
@@ -65,9 +65,9 @@ jobs:
       with:
         path: ./
         files: sample.json
-        skips: apiVersions Should Be Recent
+        skips: apiVersions Should Be Recent,Resources Should Have Location
 
-    - name: Test result - files
+    - name: Test result - skp tests
       shell: bash
       continue-on-error: true
       run: |
