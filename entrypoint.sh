@@ -1,4 +1,4 @@
-#!/bin/sh -l
+#!/bin/bash
 
 set -e
 
@@ -21,9 +21,9 @@ echo "Results: $results"
 
 # Processes the escape characters
 # https://github.com/actions/create-release/issues/25
-# results="${results//$'%'/%25}"
-# results="${results//$'\n'/%0A}"
-# results="${results//$'\r'/%0D}"
+results="${results//$'%'/'%25'}"
+results="${results//$'\n'/'%0A'}"
+results="${results//$'\r'/'%0D'}"
 
 # Sets the output
 echo "::set-output name=results::$results"
