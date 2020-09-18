@@ -14,8 +14,11 @@ _args="-TemplatePath '$1'"
 [ "$3" ] && _args="$_args -Test '$3'"
 [ "$4" ] && _args="$_args -Skip '$4'"
 
-echo "Running: sh /arm-ttk/arm-ttk/Test-AzTemplate.sh $_args"
-results=$(sh /arm-ttk/arm-ttk/Test-AzTemplate.sh $_args)
+# echo "Running: sh /arm-ttk/arm-ttk/Test-AzTemplate.sh $_args"
+# results=$(sh /arm-ttk/arm-ttk/Test-AzTemplate.sh $_args)
+
+echo "Running: pwsh /arm-ttk/arm-ttk/Test-AzTemplate.ps1 $_args"
+results=$(pwsh /arm-ttk/arm-ttk/Test-AzTemplate.ps1 $_args)
 
 echo "Results: $results"
 
