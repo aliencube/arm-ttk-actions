@@ -22,9 +22,9 @@ This is a GitHub Actions that runs the [ARM Test Toolkit (ARM TTK)](https://gith
 
 ```yaml
 steps:
-- name: Run the private action - path
+- name: Test ARM Templates - path
   id: pathtest
-  uses: ./
+  uses: aliencube/arm-ttk-actions@v0.5
   with:
     path: ./sample.json
 
@@ -41,9 +41,9 @@ steps:
 
 ```yaml
 steps:
-- name: Run the private action - files
+- name: Test ARM Templates - files
   id: filestest
-  uses: ./
+  uses: aliencube/arm-ttk-actions@v0.5
   with:
     path: ./
     files: sample.json
@@ -61,9 +61,9 @@ steps:
 
 ```yaml
 steps:
-- name: Run the private action - specify tests
+- name: Test ARM Templates - specify tests
   id: teststest
-  uses: ./
+  uses: aliencube/arm-ttk-actions@v0.5
   with:
     path: ./
     files: sample.json
@@ -82,9 +82,9 @@ steps:
 
 ```yaml
 steps:
-- name: Run the private action - skip tests
+- name: Test ARM Templates - skip tests
   id: skipstest
-  uses: ./
+  uses: aliencube/arm-ttk-actions@v0.5
   with:
     path: ./
     files: sample.json
