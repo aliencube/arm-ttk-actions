@@ -50,7 +50,7 @@ jobs:
       with:
         path: ./
         files: sample.json
-        tests: apiVersions
+        tests: apiVersions Should Be Recent
 
     - name: Test result - files
       shell: bash
@@ -65,7 +65,7 @@ jobs:
       with:
         path: ./
         files: sample.json
-        skips: apiVersions
+        skips: apiVersions Should Be Recent
 
     - name: Test result - files
       shell: bash
