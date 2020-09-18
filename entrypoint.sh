@@ -9,6 +9,8 @@ set -e
 # -Skip => $4
 
 echo "workspace: $GITHUB_WORKSPACE"
+pwd
+ls -al
 
 _args="-TemplatePath '$1'"
 
