@@ -27,7 +27,7 @@ jobs:
       shell: bash
       run: |
         results=${{ steps.pathtest.outputs.results }}
-        results="${results//'\\E[35m'/'\\e[35m'}"
+        results="${results//'\\E[35m'/''}"
         # results="${results//$'\n'/'%0A'}"
         # results="${results//$'\r'/'%0D'}"
         echo "Results $results"
