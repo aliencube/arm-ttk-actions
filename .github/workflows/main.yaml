@@ -26,11 +26,11 @@ jobs:
     - name: Test result - path
       shell: bash
       run: |
-        echo ${{ steps.pathtest.outputs.results }}
-        # results="${results//$'%'/'%25'}"
+        results=${{ steps.pathtest.outputs.results }}
+        results="${results//'\\E[35m'/'\\e[35m'}"
         # results="${results//$'\n'/'%0A'}"
         # results="${results//$'\r'/'%0D'}"
-        # echo "Results $results"
+        echo "Results $results"
 
     - name: Run the private action - files
       id: filestest
@@ -59,7 +59,7 @@ jobs:
     - name: Test result - files
       shell: bash
       run: |
-        echo ${{ steps.teststest.outputs.results }}
+        results=${{ steps.teststest.outputs.results }}
         # results="${results//$'%'/'%25'}"
         # results="${results//$'\n'/'%0A'}"
         # results="${results//$'\r'/'%0D'}"
