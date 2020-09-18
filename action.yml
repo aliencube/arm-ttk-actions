@@ -28,11 +28,11 @@ runs:
   using: docker
   image: Dockerfile
   args:
-  - -Path
+  # - -Path
   - ${{ inputs.path }}
-  - -Files
+  # - -Files
   - ${{ inputs.files }}
-  - -Tests
+  # - -Tests
   - ${{ inputs.tests }}
-  - -Skips
+  # - -Skips
   - ${{ inputs.skips }}
