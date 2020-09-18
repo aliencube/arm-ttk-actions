@@ -13,7 +13,7 @@ Param(
     $Skips
 )
 
-Set-Location ./arm-ttk/arm-ttk
+Set-Location /arm-ttk/arm-ttk
 
 # Get-ChildItem *.ps1, *.psd1, *.ps1xml, *.psm1 -Recurse | Unblock-File
 
