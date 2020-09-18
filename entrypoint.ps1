@@ -26,11 +26,11 @@ if (($Files -ne $null) -and ($Files.Length -gt 0))
 {
     $command += " -File $Files"
 }
-if ($Tests.Length -gt 0)
+if (($Tests -ne $null) -and ($Tests.Length -gt 0))
 {
     $command += " -Test $Tests"
 }
-if ($Skips.Length -gt 0)
+if (($Skips -ne $null) -and ($Skips.Length -gt 0))
 {
     $command += " -Skip $Skips"
 }
