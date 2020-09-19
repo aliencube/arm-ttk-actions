@@ -27,7 +27,7 @@ jobs:
       shell: bash
       continue-on-error: true
       run: |
-        ${{ toJSON(fromJSON(steps.pathtest.outputs.results)) }}
+        echo ${{ toJSON(fromJSON(steps.pathtest.outputs.results)) }}
 
     - name: Run the private action - files
       id: filestest
@@ -48,7 +48,7 @@ jobs:
       uses: ./
       with:
         path: ./resources
-        tests: apiVersions Should Be Recent,Resources Should Have Location
+        tests: '"apiVersions Should Be Recent","Resources Should Have Location"'
 
     # - name: Test result - specify tests
     #   shell: bash
@@ -62,7 +62,7 @@ jobs:
       uses: ./
       with:
         path: ./resources
-        skips: apiVersions Should Be Recent,Resources Should Have Location
+        skips: '"apiVersions Should Be Recent","Resources Should Have Location"'
 
     # - name: Test result - skp tests
     #   shell: bash
