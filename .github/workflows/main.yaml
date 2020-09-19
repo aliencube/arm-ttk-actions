@@ -21,7 +21,7 @@ jobs:
       id: pathtest
       uses: ./
       with:
-        path: ./sample.json
+        path: ./resources
 
     - name: Test result - path
       shell: bash
@@ -34,7 +34,7 @@ jobs:
       id: filestest
       uses: ./
       with:
-        path: ./
+        path: ./resources
         files: sample.json
 
     - name: Test result - files
@@ -48,7 +48,7 @@ jobs:
       id: teststest
       uses: ./
       with:
-        path: ./
+        path: ./resources
         files: sample.json
         tests: apiVersions Should Be Recent,Resources Should Have Location
 
@@ -63,7 +63,7 @@ jobs:
       id: skipstest
       uses: ./
       with:
-        path: ./
+        path: ./resources
         files: sample.json
         skips: apiVersions Should Be Recent,Resources Should Have Location
 

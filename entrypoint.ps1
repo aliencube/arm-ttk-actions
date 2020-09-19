@@ -44,7 +44,7 @@ $filepath = @{ Label = "Filepath"; Expression = { $_.File.FullPath.Replace("$env
 
 $output = $results | `
     Select-Object -Property Errors, Warnings, Output, AllOutput, Passed, Group, Name, $milliseconds, $filepath | `
-    ConvertTo-Json
+    ConvertTo-Json -Compress
 
 $output
 
