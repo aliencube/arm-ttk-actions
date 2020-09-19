@@ -27,7 +27,7 @@ jobs:
       shell: bash
       continue-on-error: true
       run: |
-        results=${{ steps.pathtest.outputs.results }}
+        results=${{ toJSON(steps.pathtest.outputs.results) }}
         echo "Results $results"
 
     - name: Run the private action - files
@@ -37,12 +37,12 @@ jobs:
         path: ./resources
         files: sample.json
 
-    - name: Test result - files
-      shell: bash
-      continue-on-error: true
-      run: |
-        echo ${{ steps.filestest.outputs.results }}
-        echo "Results $results"
+    # - name: Test result - files
+    #   shell: bash
+    #   continue-on-error: true
+    #   run: |
+    #     echo ${{ steps.filestest.outputs.results }}
+    #     echo "Results $results"
 
     - name: Run the private action - specify tests
       id: teststest
@@ -51,12 +51,12 @@ jobs:
         path: ./resources
         tests: apiVersions Should Be Recent,Resources Should Have Location
 
-    - name: Test result - specify tests
-      shell: bash
-      continue-on-error: true
-      run: |
-        results=${{ steps.teststest.outputs.results }}
-        echo "Results $results"
+    # - name: Test result - specify tests
+    #   shell: bash
+    #   continue-on-error: true
+    #   run: |
+    #     results=${{ steps.teststest.outputs.results }}
+    #     echo "Results $results"
 
     - name: Run the private action - skip tests
       id: skipstest
@@ -65,9 +65,9 @@ jobs:
         path: ./resources
         skips: apiVersions Should Be Recent,Resources Should Have Location
 
-    - name: Test result - skp tests
-      shell: bash
-      continue-on-error: true
-      run: |
-        echo ${{ steps.skipstest.outputs.results }}
-        echo "Results $results"
+    # - name: Test result - skp tests
+    #   shell: bash
+    #   continue-on-error: true
+    #   run: |
+    #     echo ${{ steps.skipstest.outputs.results }}
+    #     echo "Results $results"
