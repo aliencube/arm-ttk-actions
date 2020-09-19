@@ -27,8 +27,7 @@ jobs:
       shell: bash
       continue-on-error: true
       run: |
-        results=${{ toJSON(fromJSON(steps.pathtest.outputs.results)) }}
-        echo "Results $results"
+        ${{ toJSON(fromJSON(steps.pathtest.outputs.results)) }}
 
     - name: Run the private action - files
       id: filestest
