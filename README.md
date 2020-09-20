@@ -26,14 +26,13 @@ steps:
   id: pathtest
   uses: aliencube/arm-ttk-actions@v0.5
   with:
-    path: ./sample.json
+    path: ./resources
 
 - name: Test result - path
   shell: bash
   continue-on-error: true
   run: |
-    results=${{ steps.pathtest.outputs.results }}
-    echo "Results $results"
+    echo "${{ toJSON(fromJSON(steps.pathtest.outputs.results)) }}"
 ```
 
 
@@ -45,15 +44,14 @@ steps:
   id: filestest
   uses: aliencube/arm-ttk-actions@v0.5
   with:
-    path: ./
+    path: ./resources
     files: sample.json
 
 - name: Test result - files
   shell: bash
   continue-on-error: true
   run: |
-    echo ${{ steps.filestest.outputs.results }}
-    echo "Results $results"
+    echo "${{ toJSON(fromJSON(steps.filestest.outputs.results)) }}"
 ```
 
 
@@ -65,16 +63,14 @@ steps:
   id: teststest
   uses: aliencube/arm-ttk-actions@v0.5
   with:
-    path: ./
-    files: sample.json
-    tests: apiVersions Should Be Recent,Resources Should Have Location
+    path: ./resources
+    tests: '"apiVersions Should Be Recent","Resources Should Have Location"'
 
 - name: Test result - specify tests
   shell: bash
   continue-on-error: true
   run: |
-    results=${{ steps.teststest.outputs.results }}
-    echo "Results $results"
+    echo "${{ toJSON(fromJSON(steps.teststest.outputs.results)) }}"
 ```
 
 
@@ -86,22 +82,15 @@ steps:
   id: skipstest
   uses: aliencube/arm-ttk-actions@v0.5
   with:
-    path: ./
-    files: sample.json
-    skips: apiVersions Should Be Recent,Resources Should Have Location
+    path: ./resources
+    skips: '"apiVersions Should Be Recent","Resources Should Have Location"'
 
 - name: Test result - skp tests
   shell: bash
   continue-on-error: true
   run: |
-    echo ${{ steps.skipstest.outputs.results }}
-    echo "Results $results"
+    echo "${{ toJSON(fromJSON(steps.skipstest.outputs.results)) }}"
 ```
-
-
-## Known Issues ##
-
-* Output has ANSI color codes that throw errors. For its workaround, set the `continue-on-error` attribute to be `true`.
 
 
 ## Contribution ##

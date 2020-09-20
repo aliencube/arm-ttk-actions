@@ -39,4 +39,18 @@ $results = Invoke-Expression "& $command"
 
 $results
 
-Write-Output "::set-output name=results::$results"
+$milliseconds = @{ Label = "Milliseconds"; Expression = { $_.Timespan.Milliseconds } }
+$filepath = @{ Label = "Filepath"; Expression = { $_.File.FullPath.Replace("$env:GITHUB_WORKSPACE/", "") } }   
+
+$output = $results | `
+    Select-Object -Property Errors, Warnings, Output, AllOutput, Passed, Group, Name, $milliseconds, $filepath | `
+    ConvertTo-Json -Compress
+
+$output
+
+Write-Output "::set-output name=results::$output"
+
+Remove-Variable output
+Remove-Variable filepath
+Remove-Variable milliseconds
+Remove-Variable results

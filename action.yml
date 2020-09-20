@@ -1,6 +1,6 @@
 name: ARM Template Toolkit (ARM TTK)
 author: Aliencube Community
-description: Run [ARM Test Toolkit (ARM TTK)](https://github.com/Azure/arm-ttk) against your ARM templates
+description: Run ARM Template Toolkit (ARM TTK) against your ARM templates
 
 branding:
   icon: check-circle
