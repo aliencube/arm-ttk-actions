@@ -23,17 +23,11 @@ jobs:
       with:
         path: ./resources
 
-    - name: Test result (bash) - path
+    - name: Test result - path
       shell: bash
       continue-on-error: true
       run: |
         echo "${{ toJSON(fromJSON(steps.pathtest.outputs.results)) }}"
-
-    - name: Test result (powershell) - path
-      shell: pwsh
-      continue-on-error: true
-      run: |
-        ${{ toJSON(steps.pathtest.outputs.results) }} | ConvertFrom-Json | ConvertTo-Json
 
     - name: Run the private action - files
       id: filestest
@@ -42,13 +36,6 @@ jobs:
         path: ./resources
         files: sample.json
 
-    # - name: Test result - files
-    #   shell: bash
-    #   continue-on-error: true
-    #   run: |
-    #     echo ${{ steps.filestest.outputs.results }}
-    #     echo "Results $results"
-
     - name: Run the private action - specify tests
       id: teststest
       uses: ./
@@ -56,23 +43,9 @@ jobs:
         path: ./resources
         tests: '"apiVersions Should Be Recent","Resources Should Have Location"'
 
-    # - name: Test result - specify tests
-    #   shell: bash
-    #   continue-on-error: true
-    #   run: |
-    #     results=${{ steps.teststest.outputs.results }}
-    #     echo "Results $results"
-
     - name: Run the private action - skip tests
       id: skipstest
       uses: ./
       with:
         path: ./resources
         skips: '"apiVersions Should Be Recent","Resources Should Have Location"'
-
-    # - name: Test result - skp tests
-    #   shell: bash
-    #   continue-on-error: true
-    #   run: |
-    #     echo ${{ steps.skipstest.outputs.results }}
-    #     echo "Results $results"
