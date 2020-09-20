@@ -24,7 +24,7 @@ This is a GitHub Actions that runs the [ARM Test Toolkit (ARM TTK)](https://gith
 steps:
 - name: Test ARM Templates - path
   id: pathtest
-  uses: aliencube/arm-ttk-actions@v0.5
+  uses: aliencube/arm-ttk-actions@v0.3
   with:
     path: ./resources
 
@@ -42,7 +42,7 @@ steps:
 steps:
 - name: Test ARM Templates - files
   id: filestest
-  uses: aliencube/arm-ttk-actions@v0.5
+  uses: aliencube/arm-ttk-actions@v0.3
   with:
     path: ./resources
     files: sample.json
@@ -61,7 +61,7 @@ steps:
 steps:
 - name: Test ARM Templates - specify tests
   id: teststest
-  uses: aliencube/arm-ttk-actions@v0.5
+  uses: aliencube/arm-ttk-actions@v0.3
   with:
     path: ./resources
     tests: '"apiVersions Should Be Recent","Resources Should Have Location"'
@@ -80,7 +80,7 @@ steps:
 steps:
 - name: Test ARM Templates - skip tests
   id: skipstest
-  uses: aliencube/arm-ttk-actions@v0.5
+  uses: aliencube/arm-ttk-actions@v0.3
   with:
     path: ./resources
     skips: '"apiVersions Should Be Recent","Resources Should Have Location"'
