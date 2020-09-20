@@ -33,7 +33,7 @@ jobs:
       shell: pwsh
       continue-on-error: true
       run: |
-        "${{ toJSON(steps.pathtest.outputs.results) }}" | ConvertFrom-Json | ConvertTo-Json
+        ${{ toJSON(steps.pathtest.outputs.results) }} | ConvertFrom-Json | ConvertTo-Json
 
     - name: Run the private action - files
       id: filestest

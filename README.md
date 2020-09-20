@@ -32,7 +32,7 @@ steps:
   shell: bash
   continue-on-error: true
   run: |
-    echo ${{ toJSON(fromJSON(steps.pathtest.outputs.results)) }}
+    echo "${{ toJSON(fromJSON(steps.pathtest.outputs.results)) }}"
 ```
 
 
@@ -51,7 +51,7 @@ steps:
   shell: bash
   continue-on-error: true
   run: |
-    echo ${{ toJSON(fromJSON(steps.filestest.outputs.results)) }}
+    echo "${{ toJSON(fromJSON(steps.filestest.outputs.results)) }}"
 ```
 
 
@@ -70,7 +70,7 @@ steps:
   shell: bash
   continue-on-error: true
   run: |
-    echo ${{ toJSON(fromJSON(steps.teststest.outputs.results)) }}
+    echo "${{ toJSON(fromJSON(steps.teststest.outputs.results)) }}"
 ```
 
 
@@ -89,7 +89,7 @@ steps:
   shell: bash
   continue-on-error: true
   run: |
-    echo ${{ toJSON(fromJSON(steps.skipstest.outputs.results)) }}
+    echo "${{ toJSON(fromJSON(steps.skipstest.outputs.results)) }}"
 ```
 
 
